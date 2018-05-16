@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sehat Bersama</string>
+    <string name="lorem_ipsum_title">Lorem Ipsum</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tincidunt non metus eget pulvinar. Mauris at diam ut est semper volutpat. Morbi sed sagittis magna. Mauris accumsan purus eu pellentesque dictum. Proin at eros eu orci suscipit lacinia. Duis molestie eget mauris sagittis ornare. Aliquam erat volutpat.</string>
 </resources>

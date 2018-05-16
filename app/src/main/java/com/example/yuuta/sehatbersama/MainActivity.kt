@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun detailPage(id: Int) {
+    fun coursePage(id: Int) {
         val courseIntent = Intent(this, CourseActivity::class.java)
         courseIntent.putExtra(CourseActivity.WORKOUT_ID, id)
 
@@ -20,23 +20,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun chestCourse(view: View) {
-        detailPage(1)
+        coursePage(1)
     }
 
     fun absCourse(view: View) {
-        detailPage(2)
+        coursePage(2)
     }
 
     fun armCourse(view: View) {
-        detailPage(3)
+        coursePage(3)
     }
 
     fun legCourse(view: View) {
-        detailPage(4)
+        coursePage(4)
     }
 
     fun shoulderCourse(view: View) {
-        detailPage(5)
+        coursePage(5)
     }
 
 }
