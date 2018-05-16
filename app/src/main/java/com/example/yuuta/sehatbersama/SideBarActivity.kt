@@ -1,34 +1,30 @@
 package com.example.yuuta.sehatbersama
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import kotlinx.android.synthetic.main.activity_side_bar.*
-import kotlinx.android.synthetic.main.app_bar_side_bar.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class SideBarActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_side_bar)
 //        setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+//        }
 
 //        val toggle = ActionBarDrawerToggle(
 //                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
 //        drawer_layout.addDrawerListener(toggle)
 //        toggle.syncState()
-
+//
 //        nav_view.setNavigationItemSelectedListener(this)
     }
 
@@ -82,32 +78,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
-
-    fun coursePage(id: Int) {
-        val courseIntent = Intent(this, CourseActivity::class.java)
-        courseIntent.putExtra(CourseActivity.WORKOUT_ID, id)
-
-        startActivity(courseIntent)
-    }
-
-    fun chestCourse(view: View) {
-        coursePage(1)
-    }
-
-    fun absCourse(view: View) {
-        coursePage(2)
-    }
-
-    fun armCourse(view: View) {
-        coursePage(3)
-    }
-
-    fun legCourse(view: View) {
-        coursePage(4)
-    }
-
-    fun shoulderCourse(view: View) {
-        coursePage(5)
-    }
-
 }
