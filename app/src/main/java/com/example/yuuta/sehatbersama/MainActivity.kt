@@ -1,8 +1,8 @@
 package com.example.yuuta.sehatbersama
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +13,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun detailPage(id: Int) {
-        val courseIntent = Intent(this, MainActivity::class.java)
+        val courseIntent = Intent(this, CourseActivity::class.java)
+        courseIntent.putExtra(CourseActivity.WORKOUT_ID, id)
+
         startActivity(courseIntent)
     }
 
