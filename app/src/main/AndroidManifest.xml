@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".CourseActivity" />
         <activity android:name=".CourseDetailActivity" />
+        <activity android:name=".AlarmActivity"></activity>
     </application>
 
 </manifest>

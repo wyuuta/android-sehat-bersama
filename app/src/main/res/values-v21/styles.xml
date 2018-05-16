@@ -5,4 +5,13 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="MyTimePickerWidgetStyle" parent="@android:style/Widget.Material.TimePicker">
+        <item name="android:headerBackground">@color/colorPrimaryDark</item>
+        <!--<item name="android:numbersTextColor">@color/colorPrimary</item>-->
+        <!--<item name="android:numbersInnerTextColor">@color/colorPrimary</item>-->
+        <item name="android:numbersSelectorColor">@color/colorPrimaryDark</item>
+        <item name="android:numbersBackgroundColor">#babfff</item>
+        <!--<item name="android:amPmTextColor">@color/colorPrimary</item>-->
+    </style>
 </resources>

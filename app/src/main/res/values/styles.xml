@@ -17,4 +17,13 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MyTimePickerWidgetStyle" parent="@android:style/Widget.Material.TimePicker">
+        <item name="android:headerBackground">@color/colorPrimary</item>
+        <!--<item name="android:numbersTextColor">@color/colorPrimary</item>-->
+        <!--<item name="android:numbersInnerTextColor">@color/colorPrimary</item>-->
+        <item name="android:numbersSelectorColor">@color/colorPrimary</item>
+        <item name="android:numbersBackgroundColor">#babfff</item>
+        <!--<item name="android:amPmTextColor">@color/colorPrimary</item>-->
+    </style>
+
 </resources>
