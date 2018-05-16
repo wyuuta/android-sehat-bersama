@@ -83,6 +83,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    fun alarmPage(menuItem: MenuItem) {
+        val alarmIntent = Intent(this, AlarmActivity::class.java)
+        startActivity(alarmIntent)
+    }
+
     fun coursePage(id: Int) {
         val courseIntent = Intent(this, CourseActivity::class.java)
         courseIntent.putExtra(CourseActivity.WORKOUT_ID, id)
