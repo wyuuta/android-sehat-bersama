@@ -33,70 +33,143 @@
             android:gravity="center"
             android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/chestImage"
-            android:layout_width="325dp"
-            android:layout_height="130dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="140dp"
-            android:onClick="chestCourse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/chest" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/absImage"
-            android:layout_width="325dp"
-            android:layout_height="130dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:onClick="absCourse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:srcCompat="@drawable/abs" />
+                <ImageView
+                    android:id="@+id/chestImage"
+                    android:layout_width="325dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="140dp"
+                    android:onClick="chestCourse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/chest" />
 
-        <ImageView
-            android:id="@+id/armImage"
-            android:layout_width="325dp"
-            android:layout_height="130dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:onClick="armCourse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:srcCompat="@drawable/arm" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/chestImage"
+                    android:layout_alignLeft="@+id/chestImage"
+                    android:layout_alignRight="@+id/chestImage"
+                    android:layout_alignTop="@+id/chestImage"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:text="Chest"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp" />
+            </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/legImage"
-            android:layout_width="325dp"
-            android:layout_height="130dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:onClick="legCourse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:srcCompat="@drawable/leg" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/shoulderImage"
-            android:layout_width="325dp"
-            android:layout_height="130dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:onClick="shoulderCourse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
-            app:srcCompat="@drawable/shoulder" />
+                <ImageView
+                    android:id="@+id/absImage"
+                    android:layout_width="325dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="absCourse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+                    app:srcCompat="@drawable/abs" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/absImage"
+                    android:layout_alignLeft="@+id/absImage"
+                    android:layout_alignRight="@+id/absImage"
+                    android:layout_alignTop="@+id/absImage"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:text="Abs"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/armImage"
+                    android:layout_width="325dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="armCourse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@drawable/arm" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/armImage"
+                    android:layout_alignLeft="@+id/armImage"
+                    android:layout_alignRight="@+id/armImage"
+                    android:layout_alignTop="@+id/armImage"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:text="Arm"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/legImage"
+                    android:layout_width="325dp"
+                    android:layout_height="130dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="legCourse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@drawable/leg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/legImage"
+                    android:layout_alignLeft="@+id/legImage"
+                    android:layout_alignRight="@+id/legImage"
+                    android:layout_alignTop="@+id/legImage"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:text="Leg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp" />
+            </RelativeLayout>
+
+
+            <!--<ImageView-->
+            <!--android:id="@+id/shoulderImage"-->
+            <!--android:layout_width="325dp"-->
+            <!--android:layout_height="130dp"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:onClick="shoulderCourse"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/imageView4"-->
+            <!--app:srcCompat="@drawable/shoulder" />-->
         </LinearLayout>
 
     </ScrollView>

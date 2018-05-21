@@ -7,22 +7,32 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.example.yuuta.sehatbersama.Object.Course
+import com.example.yuuta.sehatbersama.Object.CourseList
 
 class CourseActivity : ListActivity() {
 
     companion object {
         const val WORKOUT_ID = "workout_id"
+        const val COURSE_LIST = "course_list"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
+        val courseIdList = intent.getIntegerArrayListExtra(COURSE_LIST)
+        val courseList = CourseList.getCourseList()
+        val localCourseList = ArrayList<Course>()
 
-        val moves = arrayOf("JUMPING JACKS", "ABDOMINAL CRUNCHES", "RUSSIAN TWIST", "MOUNTAIN_CLIMBER", "HELL TOUCH", "LEG RAISES", "PLANK", "COBRA STRETCH", "SPINE LUMBAR TWIST STRETCH LEFT", "SPINE LUMBAR TWIST STRETCH RIGHT")
+        val moves = ArrayList<String>()
+        for (id in courseIdList) {
+            localCourseList.add(courseList[id])
+            moves.add(courseList[id].ambilNama())
+        }
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(listView.context, android.R.layout.simple_list_item_1, moves)
         listView.adapter = adapter
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-            courseDetailPage(view)
+            courseDetailPage(view, localCourseList[i].ambilNama(), localCourseList[i].ambilDeskripsi())
         }
     }
 
@@ -32,8 +42,10 @@ class CourseActivity : ListActivity() {
         myToast.show()
     }
 
-    fun courseDetailPage(view: View) {
+    fun courseDetailPage(view: View, nama: String, deskripsi: String) {
         val detailPage = Intent(this, CourseDetailActivity::class.java)
+        detailPage.putExtra(CourseDetailActivity.COURSE_NAME, nama)
+        detailPage.putExtra(CourseDetailActivity.COURSE_DESC, deskripsi)
         startActivity(detailPage)
     }
 }

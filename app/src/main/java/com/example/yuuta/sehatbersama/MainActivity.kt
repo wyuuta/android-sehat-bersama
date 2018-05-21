@@ -88,31 +88,85 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(alarmIntent)
     }
 
-    fun coursePage(id: Int) {
+    fun coursePage(id: Int, courseList: ArrayList<Int>) {
         val courseIntent = Intent(this, CourseActivity::class.java)
         courseIntent.putExtra(CourseActivity.WORKOUT_ID, id)
+        courseIntent.putExtra(CourseActivity.COURSE_LIST, courseList)
 
         startActivity(courseIntent)
     }
 
     fun chestCourse(view: View) {
-        coursePage(1)
+        val courseList = ArrayList<Int>()
+        courseList.add(0)
+        courseList.add(1)
+        courseList.add(2)
+        courseList.add(3)
+        courseList.add(4)
+        courseList.add(5)
+        courseList.add(6)
+        courseList.add(7)
+        courseList.add(8)
+        courseList.add(9)
+        coursePage(1, courseList)
     }
 
     fun absCourse(view: View) {
-        coursePage(2)
+        val courseList = ArrayList<Int>()
+        courseList.add(0)
+        courseList.add(10)
+        courseList.add(11)
+        courseList.add(12)
+        courseList.add(13)
+        courseList.add(14)
+        courseList.add(15)
+        courseList.add(16)
+        courseList.add(17)
+        courseList.add(18)
+        coursePage(2, courseList)
     }
 
     fun armCourse(view: View) {
-        coursePage(3)
+        val courseList = ArrayList<Int>()
+        courseList.add(19)
+        courseList.add(20)
+        courseList.add(21)
+        courseList.add(22)
+        courseList.add(23)
+        courseList.add(24)
+        courseList.add(0)
+        courseList.add(25)
+        courseList.add(26)
+        courseList.add(27)
+        courseList.add(28)
+        courseList.add(29)
+        courseList.add(3)
+        courseList.add(30)
+        courseList.add(31)
+        courseList.add(32)
+        courseList.add(33)
+        courseList.add(34)
+        courseList.add(35)
+        coursePage(3, courseList)
     }
 
     fun legCourse(view: View) {
-        coursePage(4)
+        val courseList = ArrayList<Int>()
+        courseList.add(36)
+        courseList.add(37)
+        courseList.add(38)
+        courseList.add(39)
+        courseList.add(40)
+        courseList.add(41)
+        courseList.add(42)
+        courseList.add(43)
+        courseList.add(44)
+        coursePage(4, courseList)
     }
 
     fun shoulderCourse(view: View) {
-        coursePage(5)
+        val courseList = ArrayList<Int>()
+        coursePage(5, courseList)
     }
 
 }
