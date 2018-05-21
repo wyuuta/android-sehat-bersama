@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yuuta.sehatbersama">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +19,14 @@
         </activity>
         <activity android:name=".CourseActivity" />
         <activity android:name=".CourseDetailActivity" />
-        <activity android:name=".AlarmActivity"></activity>
+        <activity android:name=".AlarmActivity" />
+
+        <service android:name=".RingtoneService"
+            android:enabled="true" />
+        <reciever android:name=".NotificationReciever" />
+
+
+
     </application>
 
 </manifest>
