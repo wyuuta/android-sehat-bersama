@@ -1,6 +1,6 @@
 package com.example.yuuta.sehatbersama.Object
 
-class Course(val nama: String, val deskripsi: String, val lama: String) {
+class Course(val nama: String, val deskripsi: String, val lama: String, val link: String) {
 
     fun ambilNama(): String {
         return nama
@@ -12,5 +12,9 @@ class Course(val nama: String, val deskripsi: String, val lama: String) {
 
     fun ambilLama(): String {
         return lama
+    }
+
+    fun ambilLink(): String {
+        return link
     }
 }

@@ -34,7 +34,7 @@ class CourseActivity : ListActivity() {
         val adapter: CourseListAdapter = CourseListAdapter(this, moves, lama)
         listView.adapter = adapter
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-            courseDetailPage(view, localCourseList[i].ambilNama(), localCourseList[i].ambilDeskripsi())
+            courseDetailPage(view, localCourseList[i].ambilNama(), localCourseList[i].ambilDeskripsi(), localCourseList[i].ambilLink())
         }
     }
 
@@ -44,10 +44,11 @@ class CourseActivity : ListActivity() {
         myToast.show()
     }
 
-    fun courseDetailPage(view: View, nama: String, deskripsi: String) {
+    fun courseDetailPage(view: View, nama: String, deskripsi: String, link: String) {
         val detailPage = Intent(this, CourseDetailActivity::class.java)
         detailPage.putExtra(CourseDetailActivity.COURSE_NAME, nama)
         detailPage.putExtra(CourseDetailActivity.COURSE_DESC, deskripsi)
+        detailPage.putExtra(CourseDetailActivity.COURSE_LINK, link)
         startActivity(detailPage)
     }
 }
