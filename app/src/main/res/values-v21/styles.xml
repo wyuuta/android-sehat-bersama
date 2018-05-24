@@ -14,4 +14,8 @@
         <item name="android:numbersBackgroundColor">#9198ff</item>
         <!--<item name="android:amPmTextColor">@color/colorPrimary</item>-->
     </style>
+
+    <style name="HeaderBar">
+        <item name="android:background">#303F9F</item>
+    </style>
 </resources>
