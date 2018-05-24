@@ -21,10 +21,6 @@
         <activity android:name=".CourseDetailActivity" />
         <activity android:name=".AlarmActivity" />
 
-        <service android:name=".RingtoneService"
-            android:enabled="true" />
-        <reciever android:name=".NotificationReciever" />
-
 
 
     </application>
