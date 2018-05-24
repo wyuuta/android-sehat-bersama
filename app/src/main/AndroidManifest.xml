@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <receiver android:name=".NotificationReciever"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +23,6 @@
         <activity android:name=".CourseDetailActivity" />
         <activity android:name=".AlarmActivity" />
 
-        <service android:name=".RingtoneService"
-            android:enabled="true" />
-        <reciever android:name=".NotificationReciever" />
-
-
-
+        <service android:name=".RingtoneService"/>
     </application>
-
 </manifest>

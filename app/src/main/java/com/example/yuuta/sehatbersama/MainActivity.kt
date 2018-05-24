@@ -11,6 +11,11 @@ import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_side_bar.*
 import kotlinx.android.synthetic.main.app_bar_side_bar.*
+import android.app.NotificationManager
+import android.app.NotificationChannel
+import android.os.Build
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -18,7 +23,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        setSupportActionBar(toolbar)
-
+        createNotificationChannel()
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
@@ -169,4 +174,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         coursePage(5, courseList)
     }
 
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("11", "sehatbersama", importance)
+            channel.description = "channel notif sehat bersama"
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            val notificationManager = getSystemService(NotificationManager::class.java)
+            notificationManager!!.createNotificationChannel(channel)
+        }
+    }
 }
