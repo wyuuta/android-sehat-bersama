@@ -15,6 +15,7 @@ class CourseDetailActivity : YouTubeBaseActivity() {
         const val COURSE_NAME = "course_name"
         const val COURSE_DESC = "course_desc"
         const val COURSE_LINK = "course_link"
+        const val COURSE_LAMA = "course_lama"
     }
     lateinit var youtubeView:YouTubePlayerView
     lateinit var onInitListen:YouTubePlayer.OnInitializedListener
@@ -28,10 +29,15 @@ class CourseDetailActivity : YouTubeBaseActivity() {
         val nama = intent.getStringExtra(COURSE_NAME)
         val deskripsi = intent.getStringExtra(COURSE_DESC)
         val link = intent.getStringExtra(COURSE_LINK)
+        val lama = intent.getStringExtra(COURSE_LAMA)
+
         val textView = findViewById<TextView>(R.id.textViewDetail)
         val textViewDescription = findViewById<TextView>(R.id.textViewDescription)
+        val textViewLama = findViewById<TextView>(R.id.textViewLama)
+
         textView.text = nama
         textViewDescription.text = deskripsi
+        textViewLama.text = lama
 
         youtubeView = findViewById<YouTubePlayerView>(R.id.youtubeView)
         onInitListen = object: YouTubePlayer.OnInitializedListener {
