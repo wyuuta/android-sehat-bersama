@@ -27,19 +27,16 @@ class AlarmActivity : AppCompatActivity() {
     lateinit var timePicker:TimePicker
     lateinit var context:Context
     lateinit var pi:PendingIntent
-    lateinit var text: TextView
-    lateinit var hr:String
-    lateinit var mnt:String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarm)
         context = this
-
         switch = findViewById<Switch>(R.id.switch1)
         alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         timePicker = findViewById<TimePicker>(R.id.timePicker)
-        text = findViewById<TextView>(R.id.textView3)
+
         var calendar = Calendar.getInstance()
         var intent:Intent = Intent(context, NotificationReciever::class.java)
         switch.setOnCheckedChangeListener {buttonView, isChecked ->
@@ -51,26 +48,19 @@ class AlarmActivity : AppCompatActivity() {
                     calendar.set(Calendar.MINUTE, timePicker.minute)
                     calendar.set(Calendar.SECOND, 0)
                     calendar.set(Calendar.MILLISECOND, 0)
-                    hr = timePicker.hour.toString()
-                    mnt = timePicker.minute.toString()
                 }
                 else {
                     calendar.set(Calendar.HOUR_OF_DAY, timePicker.currentHour)
                     calendar.set(Calendar.MINUTE, timePicker.currentMinute)
                     calendar.set(Calendar.SECOND, 0)
                     calendar.set(Calendar.MILLISECOND, 0)
-                    hr = timePicker.currentHour.toString()
-                    mnt = timePicker.currentMinute.toString()
                 }
-                var temp:String = "Nyala $hr : $mnt"
-                text.setText(temp)
                 intent.putExtra("extra", "on")
                 pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pi)
 
             }
             else {
-                text.setText("Mati")
                 pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
                 alarmManager.cancel(pi)
                 intent.putExtra("extra","off")

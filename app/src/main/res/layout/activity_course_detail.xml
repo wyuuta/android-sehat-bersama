@@ -6,22 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".CourseDetailActivity">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        android:text="Play"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/youtubeView" />
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtubeView"
+        android:layout_width="351dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.youtube.player.YouTubePlayerView>
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_height="242dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/leg" />
+        app:layout_constraintTop_toBottomOf="@+id/button">
 
         <TextView
             android:id="@+id/textViewDetail"
@@ -35,7 +59,8 @@
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="98dp"
             android:text="@string/lorem_ipsum" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
