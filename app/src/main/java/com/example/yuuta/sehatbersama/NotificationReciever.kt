@@ -13,16 +13,16 @@ import android.support.v4.app.NotificationCompat
  */
 public class NotificationReciever : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-//        var getResult: String = intent!!.getStringExtra("extra")
-//        var serviceIntent:Intent= Intent(context, RingtoneService::class.java)
-//        serviceIntent.putExtra("extra",getResult)
-//        context!!.startService(serviceIntent)
-        var alarmUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-        if (alarmUri==null) {
-            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        }
-        RingtoneService.r = RingtoneManager.getRingtone(context, alarmUri)
-        RingtoneService.r.play()
+        var getResult: String = intent.getStringExtra("extra")
+        var serviceIntent:Intent= Intent(context, RingtoneService::class.java)
+        serviceIntent.putExtra("extra",getResult)
+        context.startService(serviceIntent)
+//        var alarmUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+//        if (alarmUri==null) {
+//            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+//        }
+//        RingtoneService.r = RingtoneManager.getRingtone(context, alarmUri)
+//        RingtoneService.r.play()
     }
 
 }

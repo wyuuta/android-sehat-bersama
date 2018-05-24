@@ -34,14 +34,14 @@ class AlarmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarm)
-        this.context = this
+        context = this
 
         switch = findViewById<Switch>(R.id.switch1)
         alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         timePicker = findViewById<TimePicker>(R.id.timePicker)
         text = findViewById<TextView>(R.id.textView3)
         var calendar = Calendar.getInstance()
-        var intent = Intent(this, NotificationRecv::class.java)
+        var intent:Intent = Intent(context, NotificationReciever::class.java)
         switch.setOnCheckedChangeListener {buttonView, isChecked ->
             if (isChecked) {
 
@@ -65,30 +65,18 @@ class AlarmActivity : AppCompatActivity() {
                 var temp:String = "Nyala $hr : $mnt"
                 text.setText(temp)
                 intent.putExtra("extra", "on")
-                pi = PendingIntent.getBroadcast(this@AlarmActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, 30*1000, pi)
+                pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pi)
 
             }
             else {
                 text.setText("Mati")
-                pi = PendingIntent.getBroadcast(this@AlarmActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+                pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
                 alarmManager.cancel(pi)
                 intent.putExtra("extra","off")
                 sendBroadcast(intent)
             }
 
-        }
-    }
-
-    class NotificationRecv:BroadcastReceiver() {
-        override fun onReceive(p0: Context?, p1: Intent?) {
-            Log.d("Alarm", "Recieve")
-            var alarmUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-            if (alarmUri==null) {
-                alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            }
-            RingtoneService.r = RingtoneManager.getRingtone(p0, alarmUri)
-            RingtoneService.r.play()
         }
     }
 }

@@ -6,11 +6,15 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.media.Ringtone
 import android.media.RingtoneManager
 import android.net.Uri
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
+import android.os.CountDownTimer
+
+
 
 
 /**
@@ -37,7 +41,7 @@ class RingtoneService: Service() {
             playAlarm()
             this.isRunning = true
             this.id = 0
-            fireNotification()
+            //fireNotification()
         }
         else if(this.isRunning && id == 0){
             r.stop()
@@ -65,13 +69,14 @@ class RingtoneService: Service() {
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         var notifyManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        var notification: Notification = NotificationCompat.Builder(this)
+        var notification: Notification = NotificationCompat.Builder(this, "11")
                 .setContentTitle("Sehat Bersama")
                 .setContentText("Sudah waktunya olahraga nih! Yuk buka Sehat Bersama!")
                 .setTicker("Pengingat Sehat Bersama")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true)
                 .build()
-        notifyManager.notify(0, notification)
+        notifyManager.notify(11, notification)
     }
 
     override fun onDestroy() {
@@ -80,12 +85,28 @@ class RingtoneService: Service() {
     }
 
     private fun playAlarm() {
+        var mediaPlayer:MediaPlayer = MediaPlayer()
         var alarmUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
         if (alarmUri==null) {
             alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         }
-        r = RingtoneManager.getRingtone(baseContext,alarmUri)
-        r.play()
+        mediaPlayer.setDataSource(this, alarmUri)
+        mediaPlayer.prepare()
+        mediaPlayer.start()
+        val timer = object : CountDownTimer(30000, 1000) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                // Nothing to do
+            }
+
+            override fun onFinish() {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop()
+                    mediaPlayer.release()
+                }
+            }
+        }
+        timer.start()
 
     }
 }
