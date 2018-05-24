@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.example.yuuta.sehatbersama.CustomAdapter.CourseListAdapter
 import com.example.yuuta.sehatbersama.Object.Course
 import com.example.yuuta.sehatbersama.Object.CourseList
 
@@ -25,11 +25,13 @@ class CourseActivity : ListActivity() {
         val localCourseList = ArrayList<Course>()
 
         val moves = ArrayList<String>()
+        val lama = ArrayList<String>()
         for (id in courseIdList) {
             localCourseList.add(courseList[id])
             moves.add(courseList[id].ambilNama())
+            lama.add(courseList[id].ambilLama())
         }
-        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(listView.context, android.R.layout.simple_list_item_1, moves)
+        val adapter: CourseListAdapter = CourseListAdapter(this, moves, lama)
         listView.adapter = adapter
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
             courseDetailPage(view, localCourseList[i].ambilNama(), localCourseList[i].ambilDeskripsi())
