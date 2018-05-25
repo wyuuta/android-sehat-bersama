@@ -21,9 +21,9 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="329dp"
+            android:layout_width="310dp"
             android:layout_height="199dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="17dp"
             android:adjustViewBounds="true"
             android:cropToPadding="false"
             android:maxHeight="150dp"

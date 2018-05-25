@@ -7,4 +7,11 @@
         android:title="@string/alarm"
         android:onClick="alarmPage"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings2"
+        android:orderInCategory="100"
+        android:title="About"
+        android:onClick="aboutPage"
+        app:showAsAction="never" />
 </menu>

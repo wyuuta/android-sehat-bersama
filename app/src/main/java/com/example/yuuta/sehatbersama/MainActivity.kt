@@ -88,6 +88,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(alarmIntent)
     }
 
+    fun aboutPage(menuIten: MenuItem) {
+        val aboutIntent = Intent(this, AboutActivity::class.java)
+        startActivity(aboutIntent)
+    }
+
     fun coursePage(id: Int, courseList: ArrayList<Int>) {
         val courseIntent = Intent(this, CourseActivity::class.java)
         courseIntent.putExtra(CourseActivity.WORKOUT_ID, id)
